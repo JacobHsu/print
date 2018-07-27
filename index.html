@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
+<head>js tprint</head>
 <body>
 
-<p>Click the button to print the current page.</p>
+<button id="button" onclick="qrprint()">打印</button>
+<button onclick="varitext();">document打印</button>
+<input type="button" onclick="doPrint()" value="打印指定區域內容" />
 
-<button onclick="myFunction()">Print this page</button>
+<div>
+    說明：這是開始打印的位置<br><!--startprint-->
+    <p>打印內容打印內容打印內容打印內容打印內容打印內容打印內容打印內容<p>
+    <p>printprintprintprintprintprintprintprintprintprintprint</p>
+    <!--endprint-->說明：這是結束打印的位置<br>
+</div>
 
 <script>
-function myFunction() {
+function qrprint() {
     window.print();
 }
+function varitext(text){
+	text=document;
+	print(text);
+}
 </script>
+<script>
+function doPrint() { 
+	bdhtml=window.document.body.innerHTML; 
+	sprnstr="<!--startprint-->"; 
+	eprnstr="<!--endprint-->"; 
+	prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); 
+	prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); 
+	window.document.body.innerHTML=prnhtml; 
+	window.print(); 
+} 
+</script>
+
 
 </body>
 </html>
