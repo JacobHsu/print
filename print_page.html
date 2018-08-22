@@ -1,0 +1,68 @@
+	
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+	<h1> do not print this </h1>
+
+	<div id='printMe'>
+	  Print this only 
+	</div>	
+	<button onclick="printDiv('printMe')">Print only the above div</button>
+
+	<div id='printTable' style="visibility:hidden">
+		<p> Print this hidden </p>            
+		<table class="table table-bordered">
+		    <thead>
+		      <tr>
+		        <th>Firstname</th>
+		        <th>Lastname</th>
+		        <th>Email</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td>Jacob</td>
+		        <td>Hsu</td>
+		        <td>jacobhsu@example.com</td>
+		      </tr>
+		      <tr>
+		        <td>Mary</td>
+		        <td>Moe</td>
+		        <td>mary@example.com</td>
+		      </tr>
+		      <tr>
+		        <td>July</td>
+		        <td>Dooley</td>
+		        <td>july@example.com</td>
+		      </tr>
+		    </tbody>
+	    </table>
+    </div>
+</div>
+
+
+<script>
+	function printDiv(divName){
+		var printContents = document.getElementById(divName).innerHTML;
+		var originalContents = document.body.innerHTML;
+		var printTable = document.getElementById('printTable').innerHTML;
+		document.body.innerHTML = printContents + printTable;
+
+		window.print();
+		document.body.innerHTML = originalContents;
+	}
+</script>
+
+</body>
+</html>
